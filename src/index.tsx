@@ -1,14 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App/App';
 import { store } from './features/store';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+
+// Components
+import Signup from './components/Signup';
+import App from './components/App';
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<App />
+			<Router>
+				<Routes>
+					<Route path="/" element={<Signup />} />
+					<Route path="/app" element={<App />} />
+					<Route path="*" element={<p>404! Nothing Found!</p>} />
+				</Routes>
+			</Router>
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')
