@@ -1,17 +1,16 @@
 @import '~antd/dist/antd.css';
 
-.layout {
+.signup {
+	background-color: #ffffff;
+	padding: 30px;
+	box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.signup-layout {
 	flex-direction: row;
 	align-items: center;
 	min-height: 600px;
 	height: 100vh;
-}
-
-.signup {
-	background-color: #ffffff;
-	padding: 30px 15px;
-	border-radius: 10px;
-	box-shadow: 2px 2px 30px 0px rgba(0, 0, 0, 0.3);
 }
 
 .signup-form {

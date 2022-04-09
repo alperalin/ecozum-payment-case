@@ -21,7 +21,7 @@ function Signup() {
 
 	// Element
 	return (
-		<Layout className="layout">
+		<Layout className="signup-layout">
 			<Content>
 				<Row justify="center" align="middle">
 					<Col className="signup" xs={24} md={12}>

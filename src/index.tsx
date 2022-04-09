@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 
 // Components
 import Signup from './components/Signup';
-import App from './components/App';
+import Packages from './components/Packages';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -15,7 +15,7 @@ ReactDOM.render(
 			<Router>
 				<Routes>
 					<Route path="/" element={<Signup />} />
-					<Route path="/app" element={<App />} />
+					<Route path="/packages" element={<Packages />} />
 					<Route path="*" element={<p>404! Nothing Found!</p>} />
 				</Routes>
 			</Router>
