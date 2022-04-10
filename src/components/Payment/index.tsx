@@ -38,7 +38,7 @@ function Payment() {
 	const [form] = Form.useForm();
 
 	// Redux
-	const { agreement, totalAmount, apiStatus } = useAppSelector(
+	const { agreement, packageIds, totalAmount, apiStatus } = useAppSelector(
 		(state) => state.payment
 	);
 	// Secilen paketler redux'tan aliniyor
@@ -91,11 +91,12 @@ function Payment() {
 	function handlePayment({ cardHolderName, cardNumber, expireDate, cvv }: any) {
 		cardNumber = cardNumber.replace(/\D+/g, '');
 		api.post('/api/payment', {
-			packageIds: selectedPackages,
+			packageIds,
 			cardHolderName,
 			cardNumber,
 			expireDate,
 			cvv,
+			totalAmount,
 		});
 
 		navigate('/thankyou');

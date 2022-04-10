@@ -29,12 +29,12 @@ const paymentSlice = createSlice({
 			state.apiMessage = null;
 		},
 		paymentSetPackageIds: (state, action) => {
-			const id = action.payload.toString();
+			const id = `${action.payload.id}`;
 			const index = state.packageIds.findIndex((item) => item === id);
 
 			// Eger id listede varsa sil
 			// Yoksa ekle
-			if (index) {
+			if (index >= 0) {
 				state.packageIds.splice(index, 1);
 			} else {
 				state.packageIds.push(id);

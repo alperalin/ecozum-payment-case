@@ -104,6 +104,30 @@
       "email": "alper@adas.com",
       "createdAt": 1649626283570,
       "id": 18
+    },
+    {
+      "fullName": "alper a",
+      "email": "alper@asdas.com",
+      "createdAt": 1649626869299,
+      "id": 19
+    },
+    {
+      "fullName": "alper",
+      "email": "asda@adsa.com",
+      "createdAt": 1649627095302,
+      "id": 20
+    },
+    {
+      "fullName": "alper",
+      "email": "sda@dasda.com",
+      "createdAt": 1649627242039,
+      "id": 21
+    },
+    {
+      "fullName": "alper",
+      "email": "asdsa@asdas.com",
+      "createdAt": 1649627292109,
+      "id": 22
     }
   ],
   "packages": [
@@ -212,209 +236,28 @@
   ],
   "payment": [
     {
-      "packageIds": [
-        "1",
-        "2"
-      ],
-      "cardHolderName": "Alper Alin",
-      "cardNumber": "5555444433332222",
-      "expireDate": "10/2023",
-      "cvv": "375",
-      "totalAmount": 100,
-      "createdAt": 1649596240208,
+      "packageIds": [],
+      "cardHolderName": "alper b",
+      "cardNumber": "4564654654654654",
+      "expireDate": "11/25",
+      "cvv": "465",
+      "totalAmount": 519.5,
+      "createdAt": 1649626924909,
       "id": 1
     },
     {
       "packageIds": [
-        {
-          "imagePath": "http://placeimg.com/640/480/business",
-          "name": "Paket Adı 4",
-          "details": [
-            "tempora",
-            "sint",
-            "placeat"
-          ],
-          "tags": [
-            "rerum",
-            "debitis",
-            "eum"
-          ],
-          "amount": 100,
-          "currency": "₺",
-          "id": 4,
-          "selected": true
-        },
-        {
-          "imagePath": "http://placeimg.com/640/480/business",
-          "name": "Paket Adı 5",
-          "details": [
-            "omnis",
-            "odio",
-            "nulla"
-          ],
-          "tags": [
-            "est",
-            "nihil",
-            "ut"
-          ],
-          "amount": 199.5,
-          "currency": "₺",
-          "id": 5,
-          "selected": true
-        },
-        {
-          "imagePath": "http://placeimg.com/640/480/business",
-          "name": "Paket Adı 5",
-          "details": [
-            "fugiat",
-            "aut",
-            "voluptatem"
-          ],
-          "tags": [
-            "aut",
-            "et",
-            "animi"
-          ],
-          "amount": 421,
-          "currency": "₺",
-          "id": 6,
-          "selected": true
-        }
+        "1",
+        "2",
+        "5"
       ],
-      "cardHolderName": "alper a",
-      "cardNumber": "4546546546546546",
-      "expireDate": "12/25",
-      "cvv": "455",
-      "createdAt": 1649626333694,
-      "id": 2
-    },
-    {
-      "packageIds": [
-        {
-          "imagePath": "http://placeimg.com/640/480/business",
-          "name": "Paket Adı 4",
-          "details": [
-            "tempora",
-            "sint",
-            "placeat"
-          ],
-          "tags": [
-            "rerum",
-            "debitis",
-            "eum"
-          ],
-          "amount": 100,
-          "currency": "₺",
-          "id": 4,
-          "selected": true
-        },
-        {
-          "imagePath": "http://placeimg.com/640/480/business",
-          "name": "Paket Adı 5",
-          "details": [
-            "omnis",
-            "odio",
-            "nulla"
-          ],
-          "tags": [
-            "est",
-            "nihil",
-            "ut"
-          ],
-          "amount": 199.5,
-          "currency": "₺",
-          "id": 5,
-          "selected": true
-        },
-        {
-          "imagePath": "http://placeimg.com/640/480/business",
-          "name": "Paket Adı 5",
-          "details": [
-            "fugiat",
-            "aut",
-            "voluptatem"
-          ],
-          "tags": [
-            "aut",
-            "et",
-            "animi"
-          ],
-          "amount": 421,
-          "currency": "₺",
-          "id": 6,
-          "selected": true
-        }
-      ],
-      "cardHolderName": "alper b",
-      "cardNumber": "4546546546546546",
-      "expireDate": "12/23",
-      "cvv": "454",
-      "createdAt": 1649626620406,
-      "id": 3
-    },
-    {
-      "packageIds": [
-        {
-          "imagePath": "http://placeimg.com/640/480/business",
-          "name": "Paket Adı 2",
-          "details": [
-            "quo",
-            "deleniti",
-            "officiis"
-          ],
-          "tags": [
-            "et",
-            "quasi",
-            "voluptas"
-          ],
-          "amount": 220,
-          "currency": "₺",
-          "id": 2,
-          "selected": true
-        },
-        {
-          "imagePath": "http://placeimg.com/640/480/business",
-          "name": "Paket Adı 5",
-          "details": [
-            "omnis",
-            "odio",
-            "nulla"
-          ],
-          "tags": [
-            "est",
-            "nihil",
-            "ut"
-          ],
-          "amount": 199.5,
-          "currency": "₺",
-          "id": 5,
-          "selected": true
-        },
-        {
-          "imagePath": "http://placeimg.com/640/480/business",
-          "name": "Paket Adı 5",
-          "details": [
-            "fugiat",
-            "aut",
-            "voluptatem"
-          ],
-          "tags": [
-            "aut",
-            "et",
-            "animi"
-          ],
-          "amount": 421,
-          "currency": "₺",
-          "id": 6,
-          "selected": true
-        }
-      ],
-      "cardHolderName": "alper c",
-      "cardNumber": "1232313132131232",
-      "expireDate": "12/26",
+      "cardHolderName": "aklper b",
+      "cardNumber": "5464564654654654",
+      "expireDate": "12/24",
       "cvv": "456",
-      "createdAt": 1649626666997,
-      "id": 4
+      "totalAmount": 619.5,
+      "createdAt": 1649627309809,
+      "id": 2
     }
   ],
   "paymentAgreement": {

@@ -28,7 +28,7 @@ function Package({ packageItem }: PropsInterface) {
 		// Tiklanan paketin selected degerini durumuna gore degistir.
 		dispatch(packagesToggle(packageItem));
 		// Tiklanan paketin id'sini payment state'ne ekle veya kaldir
-		dispatch(paymentSetPackageIds(packageItem.id));
+		dispatch(paymentSetPackageIds({ id: packageItem.id }));
 	}
 
 	return (
