@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import Signup from './components/Signup';
 import Packages from './components/Packages';
 import Payment from './components/Payment';
+import AfterPayment from './components/AfterPayment';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.render(
 					<Route path="/" element={<Signup />} />
 					<Route path="/packages" element={<Packages />} />
 					<Route path="/payment" element={<Payment />} />
+					<Route path="/afterpayment" element={<AfterPayment />} />
 					<Route path="*" element={<p>404! Nothing Found!</p>} />
 				</Routes>
 			</Router>
