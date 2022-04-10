@@ -5,17 +5,24 @@ import './Header.scss';
 import { Layout, Row, Col } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-function Header() {
+// Interface
+interface PropsInterface {
+	name?: string;
+}
+
+function Header({ name }: PropsInterface) {
 	return (
 		<Layout.Header className="header">
 			<Row className="header__row" justify="space-between" align="middle">
 				<Col className="logo" xs={8}>
 					<img src="./ecozum-logo.png" alt="Eçözüm Logo" />
 				</Col>
-				<Col className="userInfo" xs={8}>
-					<UserOutlined className="userInfo__icon" />
-					<span className="userInfo__name">Alper</span>
-				</Col>
+				{name && (
+					<Col className="userInfo" xs={8}>
+						<UserOutlined className="userInfo__icon" />
+						<span className="userInfo__name">{name}</span>
+					</Col>
+				)}
 			</Row>
 		</Layout.Header>
 	);

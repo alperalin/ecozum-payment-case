@@ -1,0 +1,189 @@
+{
+  "signup": [
+    {
+      "fullName": "alper alin",
+      "email": "alper@mail.com"
+    },
+    {
+      "id": 2,
+      "fullName": "Alper Balin",
+      "email": "alperbalin@test.com"
+    },
+    {
+      "fullName": "Alper Balin",
+      "email": "alperbalin@test.com",
+      "createdAt": 1649593965467,
+      "id": 3
+    },
+    {
+      "fullName": "Alper Alin",
+      "email": "alper@test.com",
+      "createdAt": 1649596126884,
+      "id": 4
+    },
+    {
+      "fullName": "Alper Alin",
+      "email": "alper@test.com",
+      "createdAt": 1649597345602,
+      "id": 5
+    },
+    {
+      "fullName": "Edi budu",
+      "email": "edus@gamil.com",
+      "createdAt": 1649597418500,
+      "id": 6
+    },
+    {
+      "fullName": "alper blss",
+      "email": "alper@res.com",
+      "createdAt": 1649599776870,
+      "id": 7
+    },
+    {
+      "fullName": "alper bls",
+      "email": "alper@bls.com",
+      "createdAt": 1649600928462,
+      "id": 8
+    },
+    {
+      "fullName": "alper all",
+      "email": "alp@asda.com",
+      "createdAt": 1649609068507,
+      "id": 9
+    },
+    {
+      "fullName": "alpae b",
+      "email": "alp@asda.com",
+      "createdAt": 1649610791774,
+      "id": 10
+    },
+    {
+      "fullName": "alper b",
+      "email": "alpe@a.com",
+      "createdAt": 1649614928354,
+      "id": 11
+    }
+  ],
+  "packages": [
+    {
+      "imagePath": "http://placeimg.com/640/480/business",
+      "name": "Paket Adı 1",
+      "details": [
+        "ipsa",
+        "excepturi",
+        "dolorem"
+      ],
+      "tags": [
+        "voluptatem",
+        "maiores",
+        "velit"
+      ],
+      "amount": 200,
+      "currency": "₺",
+      "id": 1
+    },
+    {
+      "imagePath": "http://placeimg.com/640/480/business",
+      "name": "Paket Adı 2",
+      "details": [
+        "quo",
+        "deleniti",
+        "officiis"
+      ],
+      "tags": [
+        "et",
+        "quasi",
+        "voluptas"
+      ],
+      "amount": 220,
+      "currency": "₺",
+      "id": 2
+    },
+    {
+      "imagePath": "http://placeimg.com/640/480/business",
+      "name": "Paket Adı 3",
+      "details": [
+        "earum",
+        "sed",
+        "eos"
+      ],
+      "tags": [
+        "nam",
+        "nihil",
+        "occaecati"
+      ],
+      "amount": 280,
+      "currency": "₺",
+      "id": 3
+    },
+    {
+      "imagePath": "http://placeimg.com/640/480/business",
+      "name": "Paket Adı 4",
+      "details": [
+        "tempora",
+        "sint",
+        "placeat"
+      ],
+      "tags": [
+        "rerum",
+        "debitis",
+        "eum"
+      ],
+      "amount": 100,
+      "currency": "₺",
+      "id": 4
+    },
+    {
+      "imagePath": "http://placeimg.com/640/480/business",
+      "name": "Paket Adı 5",
+      "details": [
+        "omnis",
+        "odio",
+        "nulla"
+      ],
+      "tags": [
+        "est",
+        "nihil",
+        "ut"
+      ],
+      "amount": 199.5,
+      "currency": "₺",
+      "id": 5
+    },
+    {
+      "imagePath": "http://placeimg.com/640/480/business",
+      "name": "Paket Adı 5",
+      "details": [
+        "fugiat",
+        "aut",
+        "voluptatem"
+      ],
+      "tags": [
+        "aut",
+        "et",
+        "animi"
+      ],
+      "amount": 421,
+      "currency": "₺",
+      "id": 6
+    }
+  ],
+  "payment": [
+    {
+      "packageIds": [
+        "1",
+        "2"
+      ],
+      "cardHolderName": "Alper Alin",
+      "cardNumber": "5555444433332222",
+      "expireDate": "10/2023",
+      "cvv": "375",
+      "totalAmount": 100,
+      "createdAt": 1649596240208,
+      "id": 1
+    }
+  ],
+  "paymentAgreement": {
+    "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna condimentum mattis pellentesque id. Arcu vitae elementum curabitur vitae nunc sed velit. Id nibh tortor id aliquet lectus. Odio morbi quis commodo odio aenean sed adipiscing diam. Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Nunc id cursus metus aliquam eleifend mi in nulla. Semper quis lectus nulla at volutpat diam ut venenatis. Vulputate mi sit amet mauris. Erat velit scelerisque in dictum non. Turpis nunc eget lorem dolor sed.</p><p>Viverra adipiscing at in tellus integer feugiat scelerisque varius morbi. Ut pharetra sit amet aliquam id diam maecenas. Amet venenatis urna cursus eget nunc scelerisque viverra mauris in. Ac turpis egestas integer eget. Massa sapien faucibus et molestie ac feugiat sed lectus. Suspendisse faucibus interdum posuere lorem ipsum. Odio ut enim blandit volutpat maecenas. Et molestie ac feugiat sed lectus vestibulum. Cras semper auctor neque vitae tempus quam pellentesque. Vel orci porta non pulvinar neque laoreet suspendisse interdum.</p>"
+  }
+}

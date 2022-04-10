@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 // Components
+import Auth from './components/Auth';
 import Signup from './components/Signup';
 import Packages from './components/Packages';
 import Payment from './components/Payment';
@@ -17,9 +18,24 @@ ReactDOM.render(
 			<Router>
 				<Routes>
 					<Route path="/" element={<Signup />} />
-					<Route path="/packages" element={<Packages />} />
-					<Route path="/payment" element={<Payment />} />
-					<Route path="/afterpayment" element={<AfterPayment />} />
+					<Route
+						path="/packages"
+						element={
+							<Auth>
+								<Packages />
+							</Auth>
+						}
+					></Route>
+
+					<Route
+						path="/payment"
+						element={
+							<Auth>
+								<Payment />
+							</Auth>
+						}
+					></Route>
+
 					<Route path="*" element={<p>404! Nothing Found!</p>} />
 				</Routes>
 			</Router>

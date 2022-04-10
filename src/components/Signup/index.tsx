@@ -1,4 +1,8 @@
 // Imports
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
+import { login, clearStatus } from '../../features/user/userSlice';
 
 // Styles
 import './Signup.scss';
@@ -11,12 +15,38 @@ const { Title } = Typography;
 
 // Component
 function Signup() {
+	// Rooter
+	const navigate = useNavigate();
+
 	// Hooks
 	const [form] = Form.useForm();
+
+	// Redux
+	const { apiStatus, apiMessage } = useAppSelector((state) => state.user);
+	const dispatch = useAppDispatch();
+
+	// Functions
+	// In first load clear api status
+	useEffect(() => {
+		dispatch(clearStatus);
+	}, []);
+
+	// After login redirect to packages page
+	useEffect(() => {
+		if (apiStatus === 'succeeded') {
+			dispatch(clearStatus());
+			navigate('/packages');
+		}
+	}, [apiStatus]);
 
 	// Handle Signup
 	function handleSignup(values: { fullName: string; email: string }): void {
 		console.log(values);
+
+		// Redux Login Dispatch
+		if (apiStatus === 'idle') {
+			dispatch(login({ ...values }));
+		}
 	}
 
 	// Element
@@ -79,6 +109,7 @@ function Signup() {
 									type="primary"
 									htmlType="submit"
 									block
+									loading={apiStatus === 'loading' ? true : false}
 								>
 									Devam Et
 								</Button>
