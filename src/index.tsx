@@ -8,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 // Components
 import Signup from './components/Signup';
 import Packages from './components/Packages';
+import Payment from './components/Payment';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.render(
 				<Routes>
 					<Route path="/" element={<Signup />} />
 					<Route path="/packages" element={<Packages />} />
+					<Route path="/payment" element={<Payment />} />
 					<Route path="*" element={<p>404! Nothing Found!</p>} />
 				</Routes>
 			</Router>
