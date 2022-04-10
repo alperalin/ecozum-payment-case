@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
 
 // Store
@@ -22,11 +23,13 @@ const { Title } = Typography;
 
 // Element
 function Packages() {
+	// Router
+	const navigate = useNavigate();
+
 	// Redux
 	const { data: packages, apiStatus } = useAppSelector(
 		(state) => state.packages
 	);
-	const { fullName } = useAppSelector((state) => state.user);
 	const dispatch = useAppDispatch();
 
 	// Functions
@@ -37,7 +40,7 @@ function Packages() {
 
 	return (
 		<Layout className="packages">
-			<Header name={fullName} />
+			<Header />
 			<Content className="packages__content">
 				<Row className="packages__row" justify="center" align="middle">
 					<Col className="packages__column" xs={20}>
@@ -67,7 +70,9 @@ function Packages() {
 
 						<div className="packages__footer">
 							<Amount />
-							<Button type="primary">Devam Et</Button>
+							<Button type="primary" onClick={() => navigate('/payment')}>
+								Devam Et
+							</Button>
 						</div>
 					</Col>
 				</Row>

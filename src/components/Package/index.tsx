@@ -1,6 +1,7 @@
 // imports
-import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
+import { useAppDispatch } from '../../hooks/hooks';
 import { PackagesInterface } from '../../features/packages/types';
+import { paymentSetPackageIds } from '../../features/payment/paymentSlice';
 
 // antd
 import { Badge, Image, Tag, Typography } from 'antd';
@@ -22,8 +23,12 @@ function Package({ packageItem }: PropsInterface) {
 	const dispatch = useAppDispatch();
 
 	// Functions
+	// Handle Package Click
 	function handlePackageSelect(packageItem: PackagesInterface) {
+		// Tiklanan paketin selected degerini durumuna gore degistir.
 		dispatch(packagesToggle(packageItem));
+		// Tiklanan paketin id'sini payment state'ne ekle veya kaldir
+		dispatch(paymentSetPackageIds(packageItem.id));
 	}
 
 	return (
@@ -55,13 +60,17 @@ function Package({ packageItem }: PropsInterface) {
 				</div>
 				<div className="package__details-content">
 					{packageItem.details?.length > 0 &&
-						packageItem.details.map((detail) => (
-							<Badge status="default" text={detail} />
+						packageItem.details.map((detail, index) => (
+							<Badge key={index} status="default" text={detail} />
 						))}
 				</div>
 				<div className="package__details-footer">
 					{packageItem.tags?.length > 0 &&
-						packageItem.tags.map((tag) => <Tag color="magenta">{tag}</Tag>)}
+						packageItem.tags.map((tag, index) => (
+							<Tag key={index} color="magenta">
+								{tag}
+							</Tag>
+						))}
 				</div>
 			</div>
 		</div>

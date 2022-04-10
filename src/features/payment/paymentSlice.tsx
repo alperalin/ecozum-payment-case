@@ -9,12 +9,9 @@ import { PaymentInterface, PaymentReduxInterface } from './types';
 
 // Initial state
 const initialState: PaymentReduxInterface = {
-	packageIds: null,
-	cardHolderName: '',
-	cardNumber: '',
-	expireDate: '',
-	cvv: '',
+	packageIds: [],
 	totalAmount: 0,
+	agreement: '',
 	apiStatus: 'idle',
 	apiMessage: null,
 };
@@ -31,9 +28,36 @@ const paymentSlice = createSlice({
 			state.apiStatus = 'idle';
 			state.apiMessage = null;
 		},
+		paymentSetPackageIds: (state, action) => {
+			const id = action.payload.toString();
+			const index = state.packageIds.findIndex((item) => item === id);
+
+			// Eger id listede varsa sil
+			// Yoksa ekle
+			if (index) {
+				state.packageIds.splice(index, 1);
+			} else {
+				state.packageIds.push(id);
+			}
+		},
+		paymentSetTotalAmount: (state, action) => {
+			state.totalAmount = action.payload;
+		},
 	},
-	extraReducers: {
-		// builder.addCase()
+	extraReducers(builder) {
+		// Login
+		builder
+			.addCase(paymentGetAgreement.pending, (state, action) => {
+				state.apiStatus = 'loading';
+			})
+			.addCase(paymentGetAgreement.fulfilled, (state, action) => {
+				state.apiStatus = 'succeeded';
+				state.agreement = action.payload.content;
+			})
+			.addCase(paymentGetAgreement.rejected, (state, action) => {
+				state.apiStatus = 'idle';
+				state.apiMessage = action.error.message || null;
+			});
 	},
 });
 
@@ -44,11 +68,30 @@ const paymentCreate = createAsyncThunk(
 		await api.post('/api/payment/', payload).then((response) => response.data)
 );
 
+const paymentGetAgreement = createAsyncThunk(
+	'payment/GET_AGREEMENT',
+	async () =>
+		await api
+			.get<{ content: string }>('/api/paymentAgreement/')
+			.then((response) => response.data)
+);
+
 // Export actions
-const { paymentClearStatus, paymentResetState } = paymentSlice.actions;
+const {
+	paymentClearStatus,
+	paymentResetState,
+	paymentSetTotalAmount,
+	paymentSetPackageIds,
+} = paymentSlice.actions;
 
 // Exports
-export { paymentClearStatus, paymentResetState, paymentCreate };
+export {
+	paymentClearStatus,
+	paymentResetState,
+	paymentGetAgreement,
+	paymentSetTotalAmount,
+	paymentSetPackageIds,
+};
 
 // Export Selector
 export const paymentSelector = (state: RootState) => state.payment;

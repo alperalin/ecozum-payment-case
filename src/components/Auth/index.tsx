@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/hooks';
 
-// API
+// antd
 import { LoadingOutlined } from '@ant-design/icons';
 
 // interface

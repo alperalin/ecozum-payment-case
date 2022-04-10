@@ -1,34 +1,37 @@
-import { useEffect, useState } from 'react';
-import { useAppSelector } from '../../hooks/hooks';
+// Imports
+import { useEffect } from 'react';
+import { paymentSetTotalAmount } from '../../features/payment/paymentSlice';
+import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
 
+// Styles
+import './style.scss';
+
+// Element
 function Amount() {
-	// Local State
-	const [amount, setAmount] = useState<number>(0);
-
 	// Redux
+	const { totalAmount } = useAppSelector((state) => state.payment);
 	// Secilen paketler redux'tan aliniyor
 	const selectedPackages = useAppSelector((state) =>
 		state.packages.data.filter((item) => item.selected === true)
 	);
+	const dispatch = useAppDispatch();
 
 	// Tutar hesabi yapiliyor
 	useEffect(() => {
+		let packageSum = 0;
 		// Secilen paketlerin fiyatlari toplaniyor ve amount state'ne ataniyor
 		if (selectedPackages.length > 0) {
-			const packageSum = selectedPackages.reduce(
+			packageSum = selectedPackages.reduce(
 				(acc, curr, index, array) => acc + array[index].amount,
 				0
 			);
-
-			setAmount(packageSum);
-		} else {
-			setAmount(0);
 		}
+		dispatch(paymentSetTotalAmount(packageSum));
 	}, [selectedPackages]);
 
 	return (
-		<div>
-			Secilen Paket Tutari: <strong>{amount}₺</strong>
+		<div className="amount">
+			Toplam Tutar: <strong>{totalAmount}₺</strong>
 		</div>
 	);
 }

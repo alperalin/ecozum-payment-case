@@ -41,8 +41,6 @@ function Signup() {
 
 	// Handle Signup
 	function handleSignup(values: { fullName: string; email: string }): void {
-		console.log(values);
-
 		// Redux Login Dispatch
 		if (apiStatus === 'idle') {
 			dispatch(login({ ...values }));

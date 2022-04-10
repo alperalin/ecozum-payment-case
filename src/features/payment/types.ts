@@ -1,11 +1,8 @@
 // Interface
 interface PaymentInterface {
-	packageIds: string[] | null;
-	cardHolderName: string;
-	cardNumber: string;
-	expireDate: string;
-	cvv: string;
+	packageIds: string[];
 	totalAmount: number;
+	agreement: string;
 }
 
 interface PaymentReduxInterface extends PaymentInterface {

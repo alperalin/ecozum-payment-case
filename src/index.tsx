@@ -10,37 +10,44 @@ import Auth from './components/Auth';
 import Signup from './components/Signup';
 import Packages from './components/Packages';
 import Payment from './components/Payment';
-import AfterPayment from './components/AfterPayment';
+import Thankyou from './components/Thankyou';
 
 ReactDOM.render(
-	<React.StrictMode>
-		<Provider store={store}>
-			<Router>
-				<Routes>
-					<Route path="/" element={<Signup />} />
-					<Route
-						path="/packages"
-						element={
-							<Auth>
-								<Packages />
-							</Auth>
-						}
-					></Route>
+	<Provider store={store}>
+		<Router>
+			<Routes>
+				<Route path="/" element={<Signup />} />
+				<Route
+					path="/packages"
+					element={
+						<Auth>
+							<Packages />
+						</Auth>
+					}
+				></Route>
 
-					<Route
-						path="/payment"
-						element={
-							<Auth>
-								<Payment />
-							</Auth>
-						}
-					></Route>
+				<Route
+					path="/payment"
+					element={
+						<Auth>
+							<Payment />
+						</Auth>
+					}
+				></Route>
 
-					<Route path="*" element={<p>404! Nothing Found!</p>} />
-				</Routes>
-			</Router>
-		</Provider>
-	</React.StrictMode>,
+				<Route
+					path="/thankyou"
+					element={
+						<Auth>
+							<Thankyou />
+						</Auth>
+					}
+				></Route>
+
+				<Route path="*" element={<p>404! Nothing Found!</p>} />
+			</Routes>
+		</Router>
+	</Provider>,
 	document.getElementById('root')
 );
 
