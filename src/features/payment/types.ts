@@ -5,9 +5,17 @@ interface PaymentInterface {
 	agreement: string;
 }
 
+interface PaymentAgreementInterface {
+	content: string;
+}
+
 interface PaymentReduxInterface extends PaymentInterface {
 	apiStatus: 'idle' | 'loading' | 'succeeded' | 'failed';
 	apiMessage: string | null;
 }
 
-export type { PaymentInterface, PaymentReduxInterface };
+export type {
+	PaymentInterface,
+	PaymentAgreementInterface,
+	PaymentReduxInterface,
+};

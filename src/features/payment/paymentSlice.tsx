@@ -5,7 +5,11 @@ import type { RootState } from '../store';
 import api from '../../api';
 
 // Interface
-import { PaymentInterface, PaymentReduxInterface } from './types';
+import {
+	PaymentInterface,
+	PaymentAgreementInterface,
+	PaymentReduxInterface,
+} from './types';
 
 // Initial state
 const initialState: PaymentReduxInterface = {
@@ -64,17 +68,11 @@ const paymentSlice = createSlice({
 });
 
 // Thunks
-const paymentCreate = createAsyncThunk(
-	'payment/CREATE',
-	async (payload: PaymentInterface) =>
-		await api.post('/api/payment/', payload).then((response) => response.data)
-);
-
 const paymentGetAgreement = createAsyncThunk(
 	'payment/GET_AGREEMENT',
 	async () =>
 		await api
-			.get<{ content: string }>('/api/paymentAgreement/')
+			.get<PaymentAgreementInterface>('/api/payment')
 			.then((response) => response.data)
 );
 
