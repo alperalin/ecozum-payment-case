@@ -2,7 +2,7 @@
 import { useAppSelector } from '../../hooks/hooks';
 
 // Styles
-import './Header.scss';
+import './style.scss';
 
 // antd
 import { Layout, Row, Col } from 'antd';

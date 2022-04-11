@@ -112,17 +112,17 @@ function Payment() {
 	}
 
 	return (
-		<Layout className="payment">
+		<Layout className="payment-layout">
 			<Header />
-			<Content className="payment__content">
-				<Row className="payment__row" justify="center" align="top" gutter={30}>
+			<Content className="payment-content">
+				<Row className="payment-row" justify="center" align="top" gutter={30}>
 					{apiStatus === 'loading' && <Spin size="large" tip="Loading" />}
 
 					{apiMessage && <Alert message={apiMessage} type="error" showIcon />}
 
 					{apiStatus === 'succeeded' && (
 						<>
-							<Col className="payment__column" xs={20} md={14}>
+							<Col className="payment-column" xs={20} md={14}>
 								<div className="payment-card">
 									<Title level={1}>Kart Bilgileri</Title>
 									<Form
@@ -221,7 +221,7 @@ function Payment() {
 									)}
 								</div>
 							</Col>
-							<Col className="payment__column" xs={20} md={6}>
+							<Col className="payment-column" xs={20} md={6}>
 								<div className="payment-cart">
 									<Title level={1}>Sepet</Title>
 

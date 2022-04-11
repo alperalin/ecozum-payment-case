@@ -9,7 +9,7 @@ import { packagesFetchAll } from '../../features/packages/packagesSlice';
 import { Layout, Row, Col, Typography, List, Button, Spin, Alert } from 'antd';
 
 // Styles
-import './Packages.scss';
+import './style.scss';
 
 // Component
 import Header from '../Header';
@@ -40,41 +40,48 @@ function Packages() {
 	}, []);
 
 	return (
-		<Layout className="packages">
+		<Layout className="packages-layout">
 			<Header />
-			<Content className="packages__content">
-				<Row className="packages__row" justify="center" align="middle">
+			<Content className="packages-content">
+				<Row
+					className="packages-row"
+					justify="center"
+					align="middle"
+					gutter={30}
+				>
 					{apiStatus === 'loading' && <Spin size="large" tip="Loading" />}
 
 					{apiMessage && <Alert message={apiMessage} type="error" showIcon />}
 
 					{apiStatus === 'succeeded' && (
-						<Col className="packages__column" xs={20}>
-							<Title level={1}>Paketler</Title>
+						<Col className="packages-column" xs={20}>
+							<div className="packages">
+								<Title level={1}>Paketler</Title>
 
-							<List
-								grid={{
-									gutter: 15,
-									xs: 1,
-									sm: 1,
-									md: 2,
-									lg: 2,
-									xl: 3,
-									xxl: 3,
-								}}
-								dataSource={packages}
-								renderItem={(packageItem) => (
-									<List.Item key={packageItem.id}>
-										<Package packageItem={packageItem} />
-									</List.Item>
-								)}
-							/>
+								<List
+									grid={{
+										gutter: 15,
+										xs: 1,
+										sm: 1,
+										md: 2,
+										lg: 2,
+										xl: 3,
+										xxl: 3,
+									}}
+									dataSource={packages}
+									renderItem={(packageItem) => (
+										<List.Item key={packageItem.id}>
+											<Package packageItem={packageItem} />
+										</List.Item>
+									)}
+								/>
 
-							<div className="packages__footer">
-								<Amount />
-								<Button type="primary" onClick={() => navigate('/payment')}>
-									Devam Et
-								</Button>
+								<div className="packages__footer">
+									<Amount />
+									<Button type="primary" onClick={() => navigate('/payment')}>
+										Devam Et
+									</Button>
+								</div>
 							</div>
 						</Col>
 					)}

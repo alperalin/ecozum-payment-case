@@ -5,7 +5,7 @@ import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
 import { login, clearStatus } from '../../features/user/userSlice';
 
 // Styles
-import './Signup.scss';
+import './style.scss';
 
 // Antd
 import { Layout, Row, Col, Typography, Form, Input, Button, Alert } from 'antd';
@@ -29,6 +29,7 @@ function Signup() {
 	// In first load clear api status
 	useEffect(() => {
 		dispatch(clearStatus);
+		// eslint-disable-next-line
 	}, []);
 
 	// After login redirect to packages page
@@ -37,6 +38,7 @@ function Signup() {
 			dispatch(clearStatus());
 			navigate('/packages');
 		}
+		// eslint-disable-next-line
 	}, [apiStatus]);
 
 	// Handle Signup
@@ -50,78 +52,80 @@ function Signup() {
 	// Element
 	return (
 		<Layout className="signup-layout">
-			<Content>
-				<Row justify="center" align="middle">
-					<Col className="signup" xs={24} md={12}>
-						{apiMessage && (
-							<Alert
-								message={apiMessage}
-								type="error"
-								showIcon
-								style={{ marginBottom: 20 }}
-							/>
-						)}
-
-						<Title
-							className="signup__title"
-							level={1}
-							style={{ textAlign: 'center' }}
-						>
-							Bilgilerinizi Giriniz
-						</Title>
-						<Form
-							form={form}
-							className="signup-form"
-							name="signup-form"
-							layout="vertical"
-							onFinish={handleSignup}
-						>
-							<Form.Item
-								name="fullName"
-								label="Adınız ve Soyadınız"
-								rules={[
-									{
-										required: true,
-										message: 'Lütfen adınızı ve soyadınızı giriniz!',
-									},
-								]}
-							>
-								<Input
-									prefix={<UserOutlined />}
-									placeholder="Adınız ve Soyadınız"
+			<Content className="signup-content">
+				<Row className="signup-row" justify="center" align="middle" gutter={30}>
+					<Col className="signup-col" xs={20} md={8}>
+						<div className="signup">
+							{apiMessage && (
+								<Alert
+									message={apiMessage}
+									type="error"
+									showIcon
+									style={{ marginBottom: 20 }}
 								/>
-							</Form.Item>
+							)}
 
-							<Form.Item
-								name="email"
-								label="E-mail"
-								rules={[
-									{
-										type: 'email',
-										message:
-											'Lütfen e-mail adresinizi geçerli bir formatta giriniz.',
-									},
-									{
-										required: true,
-										message: 'Lütfen e-mail adresinizi giriniz.',
-									},
-								]}
+							<Title
+								className="signup__title"
+								level={1}
+								style={{ textAlign: 'center' }}
 							>
-								<Input prefix={<MailOutlined />} placeholder="E-mail" />
-							</Form.Item>
-
-							<Form.Item noStyle>
-								<Button
-									className="signup-form__button"
-									type="primary"
-									htmlType="submit"
-									block
-									loading={apiStatus === 'loading' ? true : false}
+								Giriş Yapın
+							</Title>
+							<Form
+								form={form}
+								className="signup-form"
+								name="signup-form"
+								layout="vertical"
+								onFinish={handleSignup}
+							>
+								<Form.Item
+									name="fullName"
+									label="Adınız ve Soyadınız"
+									rules={[
+										{
+											required: true,
+											message: 'Lütfen adınızı ve soyadınızı giriniz!',
+										},
+									]}
 								>
-									Devam Et
-								</Button>
-							</Form.Item>
-						</Form>
+									<Input
+										prefix={<UserOutlined />}
+										placeholder="Adınız ve Soyadınız"
+									/>
+								</Form.Item>
+
+								<Form.Item
+									name="email"
+									label="E-mail"
+									rules={[
+										{
+											type: 'email',
+											message:
+												'Lütfen e-mail adresinizi geçerli bir formatta giriniz.',
+										},
+										{
+											required: true,
+											message: 'Lütfen e-mail adresinizi giriniz.',
+										},
+									]}
+								>
+									<Input prefix={<MailOutlined />} placeholder="E-mail" />
+								</Form.Item>
+
+								<Form.Item noStyle>
+									<Button
+										className="signup-form__button"
+										type="primary"
+										htmlType="submit"
+										block
+										loading={apiStatus === 'loading' ? true : false}
+									>
+										Devam Et
+									</Button>
+								</Form.Item>
+							</Form>
+						</div>
 					</Col>
 				</Row>
 			</Content>

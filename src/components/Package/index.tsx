@@ -8,7 +8,7 @@ import { Badge, Image, Tag, Typography } from 'antd';
 import { packagesToggle } from '../../features/packages/packagesSlice';
 
 // Styles
-import './Package.scss';
+import './style.scss';
 
 const { Title } = Typography;
 
