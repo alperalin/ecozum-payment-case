@@ -1,4 +1,4 @@
-// imports
+// Store
 import { useAppDispatch } from '../../hooks/hooks';
 import { PackagesInterface } from '../../features/packages/types';
 import { paymentSetPackageIds } from '../../features/payment/paymentSlice';
@@ -10,12 +10,13 @@ import { packagesToggle } from '../../features/packages/packagesSlice';
 // Styles
 import './style.scss';
 
-const { Title } = Typography;
-
 // Interface
 interface PropsInterface {
 	packageItem: PackagesInterface;
 }
+
+// antd variables
+const { Title } = Typography;
 
 // element
 function Package({ packageItem }: PropsInterface) {
@@ -54,14 +55,21 @@ function Package({ packageItem }: PropsInterface) {
 						{packageItem.name}
 					</Title>
 					<span className="package__amount">
-						{packageItem.amount}
-						{packageItem.currency}
+						<strong>
+							{packageItem.amount}
+							{packageItem.currency}
+						</strong>
 					</span>
 				</div>
 				<div className="package__details-content">
 					{packageItem.details?.length > 0 &&
 						packageItem.details.map((detail, index) => (
-							<Badge key={index} status="default" text={detail} />
+							<Badge
+								key={index}
+								status="default"
+								color="orange"
+								text={detail}
+							/>
 						))}
 				</div>
 				<div className="package__details-footer">

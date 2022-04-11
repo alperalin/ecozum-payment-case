@@ -1,19 +1,23 @@
 // Imports
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+// Store
 import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
 import { login, clearStatus } from '../../features/user/userSlice';
 
 // Styles
 import './style.scss';
 
-// Antd
+// antd
 import { Layout, Row, Col, Typography, Form, Input, Button, Alert } from 'antd';
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
+
+// antd variables
 const { Content } = Layout;
 const { Title } = Typography;
 
-// Component
+// Element
 function Signup() {
 	// Rooter
 	const navigate = useNavigate();

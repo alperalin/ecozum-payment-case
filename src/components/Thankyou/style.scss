@@ -1,13 +1,11 @@
 @import '~antd/dist/antd.css';
 
 .thankyou {
-	&__content {
-		min-width: 600px;
-		height: calc(100vh - 95px);
-	}
+	box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.2);
 
-	&__row {
-		height: 100%;
-		padding-top: 30px;
+	&-content {
+		min-width: 730px;
+		height: calc(100vh - 95px);
+		padding: 100px 15px 50px 15px;
 	}
 }

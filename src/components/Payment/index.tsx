@@ -1,8 +1,10 @@
-// import
+// Imports
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import IMask from 'imask';
 import MaskedInput from 'antd-mask-input';
+
+// Store
 import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
 import { paymentGetAgreement } from '../../features/payment/paymentSlice';
 
@@ -60,6 +62,7 @@ function Payment() {
 	// first init
 	useEffect(() => {
 		dispatch(paymentGetAgreement());
+		// eslint-disable-next-line
 	}, []);
 
 	// Functions
@@ -124,101 +127,120 @@ function Payment() {
 						<>
 							<Col className="payment-column" xs={20} md={14}>
 								<div className="payment-card">
-									<Title level={1}>Kart Bilgileri</Title>
-									<Form
-										form={form}
-										className="payment-form"
-										name="payment-form"
-										layout="vertical"
-										onFinish={handlePayment}
-									>
-										<Form.Item
-											name="cardHolderName"
-											label="Kart Sahibinin ismi"
-											rules={[
-												{
-													required: true,
-													message: 'Lütfen kart sahibinin ismini giriniz!',
-												},
-											]}
+									<div className="payment-card__form-container">
+										<Title className="payment-card__title" level={2}>
+											Kart Bilgileri
+										</Title>
+										<Form
+											form={form}
+											className="payment-card-form"
+											name="payment-card-form"
+											layout="vertical"
+											onFinish={handlePayment}
 										>
-											<Input
-												prefix={<UserOutlined />}
-												placeholder="Kart Sahibi"
-											/>
-										</Form.Item>
-
-										<Form.Item
-											name="cardNumber"
-											label="Kart Numarası"
-											rules={[{ required: true, validator: checkCreditCard }]}
-										>
-											<MaskedInput
-												mask={[
+											<Form.Item
+												name="cardHolderName"
+												label="Kart Sahibinin ismi"
+												rules={[
 													{
-														mask: '0000 0000 0000 0000',
-														lazy: false,
+														required: true,
+														message: 'Lütfen kart sahibinin ismini giriniz!',
 													},
 												]}
-												prefix={<CreditCardOutlined />}
-											/>
-										</Form.Item>
+											>
+												<Input
+													prefix={<UserOutlined />}
+													placeholder="Kart Sahibi"
+												/>
+											</Form.Item>
 
-										<Form.Item
-											name="expireDate"
-											label="Kart Son Kullanma Tarihi"
-											rules={[{ required: true, validator: checkDate }]}
-										>
-											<MaskedInput
-												mask={[
-													{
-														mask: 'MM/YY',
-														blocks: {
-															MM: {
-																mask: IMask.MaskedRange,
-																from: 1,
-																to: 12,
-															},
-															YY: {
-																mask: IMask.MaskedRange,
-																from: 22,
-																to: 29,
-															},
+											<Form.Item
+												name="cardNumber"
+												label="Kart Numarası"
+												rules={[{ required: true, validator: checkCreditCard }]}
+											>
+												<MaskedInput
+													className="payment-card-form__masked-input"
+													mask={[
+														{
+															mask: '0000 0000 0000 0000',
+															lazy: false,
 														},
-														autofix: false,
-														lazy: false,
-														overwrite: true,
-													},
-												]}
-												prefix={<CalendarOutlined />}
-											/>
-										</Form.Item>
-										<Form.Item
-											name="cvv"
-											label="Kart CVV Numarası"
-											rules={[
-												{
-													required: true,
-													message: 'Lütfen kart cvv numarasını giriniz!',
-												},
-											]}
-										>
-											<Input.Password
-												visibilityToggle={false}
-												placeholder="Kart CVV Numarası"
-												maxLength={3}
-											/>
-										</Form.Item>
-									</Form>
+													]}
+													prefix={<CreditCardOutlined />}
+												/>
+											</Form.Item>
 
-									<Title level={2}>Sözleşme</Title>
+											<Input.Group>
+												<Row gutter={10}>
+													<Col span={12}>
+														<Form.Item
+															name="expireDate"
+															label="Kart Son Kullanma Tarihi"
+															rules={[{ required: true, validator: checkDate }]}
+														>
+															<MaskedInput
+																className="payment-card-form__masked-input"
+																mask={[
+																	{
+																		mask: 'MM/YY',
+																		blocks: {
+																			MM: {
+																				mask: IMask.MaskedRange,
+																				from: 1,
+																				to: 12,
+																			},
+																			YY: {
+																				mask: IMask.MaskedRange,
+																				from: 22,
+																				to: 29,
+																			},
+																		},
+																		autofix: false,
+																		lazy: false,
+																		overwrite: true,
+																	},
+																]}
+																prefix={<CalendarOutlined />}
+															/>
+														</Form.Item>
+													</Col>
+													<Col span={12}>
+														<Form.Item
+															name="cvv"
+															label="Kart CVV Numarası"
+															rules={[
+																{
+																	required: true,
+																	message:
+																		'Lütfen kart cvv numarasını giriniz!',
+																},
+															]}
+														>
+															<Input.Password
+																visibilityToggle={false}
+																placeholder="Kart CVV Numarası"
+																maxLength={3}
+															/>
+														</Form.Item>
+													</Col>
+												</Row>
+											</Input.Group>
+										</Form>
+									</div>
 
-									{agreement && (
-										<div
-											className="payment__agreement"
-											dangerouslySetInnerHTML={{ __html: agreement }}
-										/>
-									)}
+									<div className="payment-agreement">
+										<Title className="payment-agreement__title" level={2}>
+											Sözleşme
+										</Title>
+
+										{agreement && (
+											<div
+												className="payment-agreement__content"
+												dangerouslySetInnerHTML={{ __html: agreement }}
+											/>
+										)}
+									</div>
 								</div>
 							</Col>
 							<Col className="payment-column" xs={20} md={6}>
@@ -226,10 +248,14 @@ function Payment() {
 									<Title level={1}>Sepet</Title>
 
 									<List
-										bordered
+										className="payment-cart__list"
 										dataSource={selectedPackages}
 										renderItem={(item) => (
-											<List.Item key={item.id} style={{ padding: 0 }}>
+											<List.Item
+												className="payment-cart__list-item"
+												key={item.id}
+												style={{ padding: 0 }}
+											>
 												<CartItem packageItem={item} />
 											</List.Item>
 										)}
@@ -238,7 +264,9 @@ function Payment() {
 									<Amount />
 
 									<Button
+										className="payment__buy-button"
 										type="primary"
+										size="large"
 										block
 										style={{ marginTop: '20px' }}
 										onClick={() => form.submit()}

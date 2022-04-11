@@ -18,8 +18,8 @@ function Amount() {
 
 	// Tutar hesabi yapiliyor
 	useEffect(() => {
-		let packageSum = 0;
-		// Secilen paketlerin fiyatlari toplaniyor ve amount state'ne ataniyor
+		let packageSum: number = 0;
+		// Secilen paketlerin fiyatlari toplaniyor ve total amount state'ne ataniyor
 		if (selectedPackages.length > 0) {
 			packageSum = selectedPackages.reduce(
 				(acc, curr, index, array) => acc + array[index].amount,
@@ -27,6 +27,8 @@ function Amount() {
 			);
 		}
 		dispatch(paymentSetTotalAmount(packageSum));
+
+		// eslint-disable-next-line
 	}, [selectedPackages]);
 
 	return (

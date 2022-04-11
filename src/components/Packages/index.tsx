@@ -37,6 +37,7 @@ function Packages() {
 	// first init
 	useEffect(() => {
 		dispatch(packagesFetchAll());
+		// eslint-disable-next-line
 	}, []);
 
 	return (
@@ -60,7 +61,7 @@ function Packages() {
 
 								<List
 									grid={{
-										gutter: 15,
+										gutter: 30,
 										xs: 1,
 										sm: 1,
 										md: 2,

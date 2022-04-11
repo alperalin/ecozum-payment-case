@@ -4,17 +4,19 @@
 	&-content {
 		min-height: 860px;
 		height: calc(100vh - 95px);
-		padding-top: 50px;
-		padding-bottom: 50px;
+		padding: 50px 15px;
 	}
 
 	&-row {
 		height: 100%;
 	}
 
-	&__agreement {
-		padding: 15px;
-		border: 1px solid #666666;
+	&-agreement {
+		&__content {
+			padding: 15px;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+			border-radius: 4px;
+		}
 	}
 
 	&-card,
@@ -22,6 +24,45 @@
 		background-color: #ffffff;
 		padding: 30px;
 		box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.2);
+	}
+
+	&-card {
+		&__form-container {
+			margin-bottom: 50px;
+		}
+
+		&-form {
+			padding: 15px;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+			border-radius: 4px;
+
+			.ant-input-group {
+				.ant-form-item {
+					margin: 0;
+				}
+			}
+
+			&__masked-input {
+				.ant-form-item-has-error & {
+					background: #fff;
+					border-color: #ff4d4f;
+				}
+			}
+		}
+	}
+
+	&-cart {
+		&__list-item {
+			margin-bottom: 8px;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__buy-button {
+		border-radius: 4px;
 	}
 }
 
@@ -31,7 +72,8 @@
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	background-color: aqua;
+	background-color: #d6e6ff;
+	border-radius: 4px;
 	padding: 10px 15px;
 
 	&__amount {
