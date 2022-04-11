@@ -2,7 +2,7 @@ import { Navigate } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/hooks';
 
 // antd
-import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
 
 // interface
 interface AuthInterface {
@@ -15,7 +15,7 @@ function Auth({ children }: AuthInterface) {
 
 	// State'teki isLoggedIn degeri false ise ziyaretciyi signup sayfasina gonder
 	if (apiStatus === 'loading') {
-		<LoadingOutlined />;
+		<Spin size="large" tip="Loading" />;
 	} else if (!isLoggedIn) {
 		// based on https://reactrouter.com/docs/en/v6/examples/auth
 		// Redirect them to the /login page, but save the current location they were

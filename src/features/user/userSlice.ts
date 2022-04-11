@@ -36,9 +36,11 @@ const userSlice = createSlice({
 		builder
 			.addCase(login.pending, (state, action) => {
 				state.apiStatus = 'loading';
+				state.apiMessage = null;
 			})
 			.addCase(login.fulfilled, (state, action) => {
 				state.apiStatus = 'succeeded';
+				state.apiMessage = null;
 				state.id = action.payload.id;
 				state.fullName = action.payload.fullName;
 				state.email = action.payload.email;

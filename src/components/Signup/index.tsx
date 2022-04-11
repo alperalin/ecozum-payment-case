@@ -8,7 +8,7 @@ import { login, clearStatus } from '../../features/user/userSlice';
 import './Signup.scss';
 
 // Antd
-import { Layout, Row, Col, Typography, Form, Input, Button } from 'antd';
+import { Layout, Row, Col, Typography, Form, Input, Button, Alert } from 'antd';
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
 const { Content } = Layout;
 const { Title } = Typography;
@@ -53,6 +53,15 @@ function Signup() {
 			<Content>
 				<Row justify="center" align="middle">
 					<Col className="signup" xs={24} md={12}>
+						{apiMessage && (
+							<Alert
+								message={apiMessage}
+								type="error"
+								showIcon
+								style={{ marginBottom: 20 }}
+							/>
+						)}
+
 						<Title
 							className="signup__title"
 							level={1}

@@ -6,8 +6,7 @@ import { useAppSelector, useAppDispatch } from '../../hooks/hooks';
 import { packagesFetchAll } from '../../features/packages/packagesSlice';
 
 // antd
-import { Layout, Row, Col, Typography, List, Button } from 'antd';
-import { LoadingOutlined } from '@ant-design/icons';
+import { Layout, Row, Col, Typography, List, Button, Spin, Alert } from 'antd';
 
 // Styles
 import './Packages.scss';
@@ -27,9 +26,11 @@ function Packages() {
 	const navigate = useNavigate();
 
 	// Redux
-	const { data: packages, apiStatus } = useAppSelector(
-		(state) => state.packages
-	);
+	const {
+		data: packages,
+		apiStatus,
+		apiMessage,
+	} = useAppSelector((state) => state.packages);
 	const dispatch = useAppDispatch();
 
 	// Functions
@@ -43,12 +44,14 @@ function Packages() {
 			<Header />
 			<Content className="packages__content">
 				<Row className="packages__row" justify="center" align="middle">
-					<Col className="packages__column" xs={20}>
-						<Title level={1}>Paketler</Title>
+					{apiStatus === 'loading' && <Spin size="large" tip="Loading" />}
 
-						{apiStatus === 'loading' ? (
-							<LoadingOutlined />
-						) : (
+					{apiMessage && <Alert message={apiMessage} type="error" showIcon />}
+
+					{apiStatus === 'succeeded' && (
+						<Col className="packages__column" xs={20}>
+							<Title level={1}>Paketler</Title>
+
 							<List
 								grid={{
 									gutter: 15,
@@ -66,15 +69,15 @@ function Packages() {
 									</List.Item>
 								)}
 							/>
-						)}
 
-						<div className="packages__footer">
-							<Amount />
-							<Button type="primary" onClick={() => navigate('/payment')}>
-								Devam Et
-							</Button>
-						</div>
-					</Col>
+							<div className="packages__footer">
+								<Amount />
+								<Button type="primary" onClick={() => navigate('/payment')}>
+									Devam Et
+								</Button>
+							</div>
+						</Col>
+					)}
 				</Row>
 			</Content>
 		</Layout>

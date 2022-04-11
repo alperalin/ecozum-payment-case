@@ -10,12 +10,22 @@ import { paymentGetAgreement } from '../../features/payment/paymentSlice';
 import api from '../../api';
 
 // antd
-import { Layout, Row, Col, Typography, Button, List, Form, Input } from 'antd';
+import {
+	Layout,
+	Row,
+	Col,
+	Typography,
+	Button,
+	List,
+	Form,
+	Input,
+	Spin,
+	Alert,
+} from 'antd';
 import {
 	UserOutlined,
 	CreditCardOutlined,
 	CalendarOutlined,
-	LoadingOutlined,
 } from '@ant-design/icons';
 
 // Styles
@@ -38,9 +48,8 @@ function Payment() {
 	const [form] = Form.useForm();
 
 	// Redux
-	const { agreement, packageIds, totalAmount, apiStatus } = useAppSelector(
-		(state) => state.payment
-	);
+	const { agreement, packageIds, totalAmount, apiStatus, apiMessage } =
+		useAppSelector((state) => state.payment);
 	// Secilen paketler redux'tan aliniyor
 	const selectedPackages = useAppSelector((state) =>
 		state.packages.data.filter((item) => item.selected === true)
@@ -107,7 +116,9 @@ function Payment() {
 			<Header />
 			<Content className="payment__content">
 				<Row className="payment__row" justify="center" align="top" gutter={30}>
-					{apiStatus === 'loading' && <LoadingOutlined />}
+					{apiStatus === 'loading' && <Spin size="large" tip="Loading" />}
+
+					{apiMessage && <Alert message={apiMessage} type="error" showIcon />}
 
 					{apiStatus === 'succeeded' && (
 						<>

@@ -49,9 +49,11 @@ const paymentSlice = createSlice({
 		builder
 			.addCase(paymentGetAgreement.pending, (state, action) => {
 				state.apiStatus = 'loading';
+				state.apiMessage = null;
 			})
 			.addCase(paymentGetAgreement.fulfilled, (state, action) => {
 				state.apiStatus = 'succeeded';
+				state.apiMessage = null;
 				state.agreement = action.payload.content;
 			})
 			.addCase(paymentGetAgreement.rejected, (state, action) => {

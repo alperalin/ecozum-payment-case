@@ -36,23 +36,19 @@ const packagesSlice = createSlice({
 			const index = state.data.findIndex((item) => item.id === id);
 
 			state.data[index].selected = !state.data[index].selected;
-
-			// state.data = [
-			// 	...state.data.slice(0, index),
-			// 	{ ...action.payload, selected: !action.payload.selected },
-			// 	...state.data.slice(index + 1),
-			// ];
 		},
 	},
 	extraReducers(builder) {
 		builder
 			.addCase(packagesFetchAll.pending, (state, action) => {
 				state.apiStatus = 'loading';
+				state.apiMessage = null;
 			})
 			.addCase(
 				packagesFetchAll.fulfilled,
 				(state, action: PayloadAction<any>) => {
 					state.apiStatus = 'succeeded';
+					state.apiMessage = null;
 					state.data = [...action.payload];
 				}
 			)
