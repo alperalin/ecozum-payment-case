@@ -1,3 +1,19 @@
+# Eçözüm Payment Case
+
+React kullanılarak basit bir ödeme app'i geliştirilmiştir.
+
+## Kullanılan Teknolojiler
+
+- TypeScript
+- React v17.0.2
+- Redux Toolkit
+- React Router Dom
+- Ant design & Icons
+- Sass
+- Axios
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
